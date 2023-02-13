@@ -1,5 +1,5 @@
 <template>
-  <section v-if="contact" class="contact-edit">
+  <section v-if="contact" class="main-layout contact-edit">
     <h1>{{ getTitle }}</h1>
     <form @submit.prevent="onSave" v-if="contact">
       <label for="text">FullName</label>

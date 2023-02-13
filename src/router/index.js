@@ -11,7 +11,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: HomePage
+      component: HomePage,
+      meta: { transition: 'slide-left' },
     },
     {
       path: '/contact',

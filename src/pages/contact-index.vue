@@ -1,5 +1,5 @@
 <template>
-  <section class="main-container">
+  <section class="main-layout main-container">
     <div>
       <ContactFilter @filter="onSetFilterBy" />
       <RouterLink to="/contact/edit"
@@ -25,16 +25,25 @@ import ContactFilter from "@/cmps/contact-filter.vue";
 export default {
   data() {
     return {
-      contacts: null,
+      // contacts: null,
       filterBy: {},
     };
   },
+  computed: {
+    contacts() { return this.$store.state.contactStore.contacts },
+    // filteredContacts() {
+    //   const regex = new RegExp(this.filterBy.txt, "i");
+    //   return this.contacts.filter((contact) => regex.test(contact.name));
+    // },
+  },
   async created() {
+    // this.$store.dispatch({type: 'loadContacts'})
     this.loadContacts();
   },
   methods: {
-    async loadContacts() {
-      this.contacts = await contactService.getContacts(this.filterBy);
+    loadContacts() {
+      // this.contacts = await contactService.getContacts(this.filterBy);
+      return this.$store.dispatch({type: 'loadContacts'})
     },
     async removeContact(contactId) {
       const msg = {
@@ -53,12 +62,6 @@ export default {
       this.filterBy = filterBy;
       this.loadContacts()
     },
-  },
-  computed: {
-    // filteredContacts() {
-    //   const regex = new RegExp(this.filterBy.txt, "i");
-    //   return this.contacts.filter((contact) => regex.test(contact.name));
-    // },
   },
   components: {
     ContactList,

@@ -1,5 +1,5 @@
 <template>
-  <section class="charts-container">
+  <section class="main-layout charts-container">
     <AvgChart />
     <ValueChart />
   </section>

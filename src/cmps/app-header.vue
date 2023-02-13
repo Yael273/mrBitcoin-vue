@@ -5,7 +5,7 @@
       <h1>Mr. Bitcoin</h1>
     </div>
     <div class="user-info">
-      <p v-if="currUser">{{ currUser.name }}</p>
+      <h4 v-if="currUser">{{ currUser.name }}</h4>
       <p  v-if="exchangeRate">1$ = {{ exchangeRate }}₿</p>
     </div>
     <nav>
@@ -28,10 +28,19 @@ export default {
         exchangeRate: null,
     };
   },
+  computed: {
+    cmpStyle() {
+      return {
+        backgroundColor: this.isDark ? "#0d7e80" : "lightBlue",
+        color: this.isDark ? "white" : "#0d7e80",
+      };
+    },
+  },
   async created() {
     this.currUser = userService.getUser();
     this.exchangeRate = await bitcoinService.getRate();
   },
+
 };
 </script>
 
