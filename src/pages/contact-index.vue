@@ -1,5 +1,6 @@
 <template>
   <section class="main-layout main-container">
+    <!-- <router-view></router-view> -->
     <div>
       <ContactFilter @filter="onSetFilterBy" />
       <RouterLink to="/contact/edit"
@@ -52,7 +53,8 @@ export default {
         type: "success",
         timeout: 2500,
       };
-      await contactService.deleteContact(contactId);
+      // await contactService.deleteContact(contactId);
+      await this.$store.dispatch({type: 'removeContact', contactId})
       this.contacts = this.contacts.filter(
         (contact) => contact._id !== contactId
       );

@@ -2,10 +2,12 @@
     <div class="try">
 
   <div v-if="contact" class="contact-details">
+    <!-- <img v-if="contact" -->
     <img
       :src="`https://robohash.org/${contact.name}?set=set5`"
       :alt="contact.name"
     />
+    <!-- <p v-else>loading...</p> -->
     <h2>{{ contact.name }}</h2>
     <div class="info">
       <div class="info-details">

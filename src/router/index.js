@@ -5,6 +5,8 @@ import ContactIndex from '../pages/contact-index.vue'
 import ContactDetails from '../pages/contact-details.vue'
 import ContactEdit from '../pages/contact-edit.vue'
 import Chart from '../pages/chart.vue'
+import AvgChart from '../cmps/avg-chart.vue'
+import ValueChart from '../cmps/value-chart.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -12,11 +14,11 @@ const router = createRouter({
     {
       path: '/',
       component: HomePage,
-      meta: { transition: 'slide-left' },
     },
     {
       path: '/contact',
-      component: ContactIndex
+      component: ContactIndex,
+      children: [],
     },
     {
       path: '/contact/:_id',
@@ -29,6 +31,16 @@ const router = createRouter({
   {
       path: '/stats',
       component: Chart,
+      children: [
+        {
+          path: 'average',
+          component: AvgChart,
+        },
+        {
+          path: 'value',
+          component: ValueChart,
+        },
+      ],
   },
     // {
     //   path: '/about',

@@ -11,7 +11,7 @@
       :alt="currUser.name"
     />
       <h1>{{ currUser.name }}</h1>
-    <h3>Your balance: {{ currUser.balance }}</h3>
+    <h3>Your balance <span>{{ currUser.balance }}</span></h3>
     <p  v-if="exchangeRate">1$ = {{ exchangeRate }}₿</p>
     </div>
   </main>

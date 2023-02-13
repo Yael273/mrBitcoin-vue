@@ -1,12 +1,17 @@
 <template>
   <section class="main-layout charts-container">
-    <AvgChart />
-    <ValueChart />
+    <!-- <h1>view stats</h1> -->
+    <nav>
+      <RouterLink to="/stats/average">Average</RouterLink>
+    <RouterLink to="/stats/Value">Value</RouterLink>
+    </nav>
+    <router-view></router-view>
+    <!-- <AvgChart />
+    <ValueChart /> -->
   </section>
 </template>
 
 <script>
-import { bitcoinService } from "../services/bitcoin.service";
 import AvgChart from "@/cmps/avg-chart.vue";
 import ValueChart from "@/cmps/value-chart.vue";
 

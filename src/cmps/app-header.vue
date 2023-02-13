@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo">
-      <img src="src/assets/img/Dollar-Gold-Coin-PNG.png" alt="" />
+      <img src="/src/assets/img/DollarGoldCoin.png" alt="" />
       <h1>Mr. Bitcoin</h1>
     </div>
     <div class="user-info">
