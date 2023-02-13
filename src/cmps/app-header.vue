@@ -11,7 +11,7 @@
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/contact">Contacts</RouterLink>
-      <RouterLink to="/stats">Chart</RouterLink>
+      <RouterLink to="/stats/average">Chart</RouterLink>
     </nav>
    
   </header>
