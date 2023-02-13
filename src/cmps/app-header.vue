@@ -2,17 +2,18 @@
   <header>
     <div class="logo">
       <img src="src/assets/img/Dollar-Gold-Coin-PNG.png" alt="" />
-      <h1>Mr Bitcoin</h1>
+      <h1>Mr. Bitcoin</h1>
+    </div>
+    <div class="user-info">
+      <p v-if="currUser">{{ currUser.name }}</p>
+      <p  v-if="exchangeRate">1$ = {{ exchangeRate }}₿</p>
     </div>
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/contact">Contacts</RouterLink>
       <RouterLink to="/stats">Chart</RouterLink>
     </nav>
-    <div class="user-info">
-      <p>{{ currUser.name }}</p>
-      <p>Exchange Rate: {{ exchangeRate }}</p>
-    </div>
+   
   </header>
 </template>
 
@@ -24,13 +25,12 @@ export default {
   data() {
     return {
       currUser: null,
-      //   exchangeRate: null,
-      exchangeRate: "0.00004586",
+        exchangeRate: null,
     };
   },
   async created() {
     this.currUser = userService.getUser();
-    // this.exchangeRate = await bitcoinService.getRate();
+    this.exchangeRate = await bitcoinService.getRate();
   },
 };
 </script>

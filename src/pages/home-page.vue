@@ -14,13 +14,12 @@ export default {
   data() {
     return {
       currUser: null,
-    //   exchangeRate: null,
-      exchangeRate: '0.00004586',
+      exchangeRate: null,
     };
   },
   async created() {
     this.currUser = userService.getUser();
-    // this.exchangeRate = await bitcoinService.getRate();
+    this.exchangeRate = await bitcoinService.getRate();
   },
 };
 </script>

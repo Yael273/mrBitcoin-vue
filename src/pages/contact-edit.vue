@@ -1,8 +1,7 @@
 <template>
-  <section class="contact-edit">
-    <h1 v-if="contact._id">Edit Contact</h1>
-    <h1 v-else>Add Contact</h1>
-    <form @submit.prevent="save" v-if="contact">
+  <section v-if="contact" class="contact-edit">
+    <h1>{{ getTitle }}</h1>
+    <form @submit.prevent="onSave" v-if="contact">
       <label for="text">FullName</label>
       <input
         id="text"
@@ -44,11 +43,16 @@ export default {
     }
   },
   methods: {
-    async save() {
+    async onSave() {
       await contactService.saveContact(this.contact);
       this.$router.push("/contact");
     },
   },
+  computed:{
+    getTitle(){
+        return  (this.contact._id ? 'Edit' : 'Add') + ' Contact'
+    }
+  }
 };
 </script>
 

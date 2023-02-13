@@ -34,7 +34,7 @@ export default {
 .user-msg {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 10px;
   background-color: rgba(0, 139, 139, 0.267);
   padding: 0px 10px;
   border-radius: 0.3rem;
