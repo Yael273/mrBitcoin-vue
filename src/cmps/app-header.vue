@@ -4,10 +4,10 @@
       <img src="/src/assets/img/DollarGoldCoin.png" alt="" />
       <h1>Mr. Bitcoin</h1>
     </div>
-    <div class="user-info">
+    <!-- <div class="user-info">
       <h4 v-if="currUser">{{ currUser.name }}</h4>
       <p  v-if="exchangeRate">1$ = {{ exchangeRate }}₿</p>
-    </div>
+    </div> -->
     <!-- <nav v-if="currUser"> -->
     <nav>
       <RouterLink to="/home">Home</RouterLink>
@@ -41,7 +41,7 @@ export default {
     },
   },
   async created() {
-    this.currUser = this.computed.getUser()
+    // this.currUser = this.computed.getUser()
     this.exchangeRate = await bitcoinService.getRate();
   },
 
