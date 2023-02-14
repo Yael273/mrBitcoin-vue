@@ -1,7 +1,7 @@
 <template>
     <article>
         <!-- <img
-      :src="`https://robohash.org/${contact.name}?set=set5`"
+      :src="contact.imgId"
       :alt="contact.name"
     /> -->
         <h2>{{ contact.name }}</h2>

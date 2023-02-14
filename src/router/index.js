@@ -7,13 +7,22 @@ import ContactEdit from '../pages/contact-edit.vue'
 import Chart from '../pages/chart.vue'
 import AvgChart from '../cmps/avg-chart.vue'
 import ValueChart from '../cmps/value-chart.vue'
+import SignUp from '../pages/login-signup.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
+      redirect: '/signup'
+    },
+    {
+      path: '/home',
       component: HomePage,
+    },
+    {
+      path: '/signup',
+      component: SignUp,
     },
     {
       path: '/contact',

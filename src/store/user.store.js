@@ -2,7 +2,7 @@ import { userService } from "../services/user.service.js"
 
 export const userStore = {
     state: {
-        user: userService.getUser(),
+        user: userService.getLoggedinUser(),
     },
     getters: {
         user({ user }) { return user },
@@ -38,14 +38,22 @@ export const userStore = {
                     return order
                 })
         },
-        deposit(context, { amount }) {
+        deposit(context, { name, amount }) {
             console.log('context', context)
-            return userService.updateBalance(amount)
+            return userService.transferFunds(name, amount)
                 .then(balance => {
                     context.commit({ type: 'setUserBalance', balance })
                     return balance
                 })
         },
+        // deposit(context, { amount }) {
+        //     console.log('context', context)
+        //     return userService.updateBalance(amount)
+        //         .then(balance => {
+        //             context.commit({ type: 'setUserBalance', balance })
+        //             return balance
+        //         })
+        // },
 
     }
 }

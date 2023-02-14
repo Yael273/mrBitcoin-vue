@@ -8,8 +8,9 @@
       <h4 v-if="currUser">{{ currUser.name }}</h4>
       <p  v-if="exchangeRate">1$ = {{ exchangeRate }}₿</p>
     </div>
+    <!-- <nav v-if="currUser"> -->
     <nav>
-      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/home">Home</RouterLink>
       <RouterLink to="/contact">Contacts</RouterLink>
       <RouterLink to="/stats/average">Chart</RouterLink>
     </nav>
@@ -29,6 +30,9 @@ export default {
     };
   },
   computed: {
+    getUser() {
+      return this.$store.getters.user;
+    },
     cmpStyle() {
       return {
         backgroundColor: this.isDark ? "#0d7e80" : "lightBlue",
@@ -37,7 +41,7 @@ export default {
     },
   },
   async created() {
-    this.currUser = userService.getUser();
+    this.currUser = this.computed.getUser()
     this.exchangeRate = await bitcoinService.getRate();
   },
 

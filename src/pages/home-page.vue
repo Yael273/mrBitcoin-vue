@@ -1,10 +1,10 @@
 <template>
-  <main  class=" home-page">
-    <div class="welcome" :class="{ change_color: scrollPosition > 30 }">
+  <main  class=" home-page-user">
+    <!-- <div class="welcome" :class="{ change_color: scrollPosition > 30 }">
       <h2 >welcome to</h2>
       <h1 :class="{ display_none: scrollPosition > 400 }">Mr. Bitcoin</h1>
-      <!-- <h1>Mr. Bitcoin</h1> -->
-    </div>
+      <h1>Mr. Bitcoin</h1>
+    </div> -->
     <div class="user-info">
       <img
       :src="`https://robohash.org/${currUser.name}?set=set5`"
@@ -34,8 +34,16 @@ export default {
       this.scrollPosition = window.scrollY;
     },
   },
+  computed: {
+    getUser() {
+      return this.$store.getters.user;
+    },
+  },
   async created() {
-    this.currUser = userService.getUser();
+    // const user = userService.getLoggedinUser()
+    // if (!user) this.$router.push("/signup");
+    // else this.currUser = user;
+    this.currUser = userService.getLoggedinUser()
     this.exchangeRate = await bitcoinService.getRate();
   },
   mounted() {
