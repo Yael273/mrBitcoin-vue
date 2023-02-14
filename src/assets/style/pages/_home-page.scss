@@ -3,10 +3,10 @@
     flex-direction: column;
     align-items: center;
 
-    background: url('/src/assets/img/coin.png');
-    background-repeat: no-repeat;
-    background-size: 2000px;
-    background-position: center top;
+    // background: url('/src/assets/img/coin.png');
+    // background-repeat: no-repeat;
+    // background-size: 2000px;
+    // background-position: center top;
     // background-position-y:-100px;
     background-position-y:-400px;
     position: relative;
@@ -16,7 +16,7 @@
         color: $main-clr;
         width: 100%;
         // background-color: black;
-        background-color: $main-clr2;
+        background-color: $main-clr3;
         margin: auto;
         text-align: center;
         color: black;
@@ -98,7 +98,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #e7f5f5;
+            // background-color: #e7f5f5;
+            background-color: $main-clr2;
             padding: 10px 50px;
             border-radius: 1rem;
             font-size: 20px;
@@ -117,7 +118,7 @@
 }
 
 .change_color {
-    background-color: #e7f5f5 !important;
+    background-color: #344444 !important;
     transition: 0.5s !important;
 }
 

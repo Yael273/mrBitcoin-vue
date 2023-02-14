@@ -58,11 +58,13 @@ export const contactStore = {
 
     },
     actions: {
-        loadContacts({ commit }) {
-            contactService.getContacts()
-                .then((contacts) => {
-                    commit({ type: 'setContacts', contacts })
-                })
+        async loadContacts({ commit }, {filterBy}) {
+            try {
+                const contacts = await contactService.getContacts(filterBy)
+                commit({ type: 'setContacts', contacts })
+            } catch (err) {
+                throw err
+            }
         },
         async removeContact({ commit }, payload) {
             commit(payload)

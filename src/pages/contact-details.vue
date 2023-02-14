@@ -4,7 +4,7 @@
   <div v-if="contact" class="contact-details">
     <!-- <img v-if="contact" -->
     <img
-      :src="`https://robohash.org/${contact.name}?set=set5`"
+      :src="contact.imgId"
       :alt="contact.name"
     />
     <!-- <p v-else>loading...</p> -->

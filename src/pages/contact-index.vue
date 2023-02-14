@@ -17,52 +17,32 @@
 </template>
 
 <script>
-import { contactService } from "@/services/contact.service.js";
 import { eventBus } from "@/services/eventBus.service.js";
 
 import ContactList from "@/cmps/contact-list.vue";
 import ContactFilter from "@/cmps/contact-filter.vue";
 
 export default {
-  data() {
-    return {
-      // contacts: null,
-      filterBy: {},
-    };
-  },
-  computed: {
-    contacts() { return this.$store.state.contactStore.contacts },
-    // filteredContacts() {
-    //   const regex = new RegExp(this.filterBy.txt, "i");
-    //   return this.contacts.filter((contact) => regex.test(contact.name));
-    // },
-  },
   async created() {
-    // this.$store.dispatch({type: 'loadContacts'})
-    this.loadContacts();
+    this.$store.dispatch({ type: "loadContacts" });
   },
   methods: {
-    loadContacts() {
-      // this.contacts = await contactService.getContacts(this.filterBy);
-      return this.$store.dispatch({type: 'loadContacts'})
-    },
     async removeContact(contactId) {
       const msg = {
-        // txt: `Contact ${contactId} deleted.`,
-        txt: `Contact deleted.`,
+        txt: `Contact ${contactId} deleted.`,
         type: "success",
         timeout: 2500,
       };
-      // await contactService.deleteContact(contactId);
-      await this.$store.dispatch({type: 'removeContact', contactId})
-      this.contacts = this.contacts.filter(
-        (contact) => contact._id !== contactId
-      );
+      this.$store.dispatch({ type: "removeContact", contactId });
       eventBus.emit("user-msg", msg);
     },
     onSetFilterBy(filterBy) {
-      this.filterBy = filterBy;
-      this.loadContacts()
+      this.$store.dispatch({ type: "loadContacts", filterBy });
+    },
+  },
+  computed: {
+    contacts() {
+      return this.$store.getters.contacts;
     },
   },
   components: {

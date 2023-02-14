@@ -20,6 +20,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler
 } from "chart.js";
 import { Line } from "vue-chartjs";
 
@@ -30,7 +31,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 
 export default {
@@ -57,8 +59,10 @@ export default {
             data: this.getDatasetData,
             fill: false,
             borderColor: "rgb(75, 192, 192)",
+            color: 'white',
             tension: 0.1,
             backgroundColor: "#f7931a99",
+            // pointRadius: 0,
           },
         ],
       };
