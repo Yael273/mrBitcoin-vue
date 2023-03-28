@@ -1,0 +1,110 @@
+.contact-details {
+    background-color: $main-clr3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+    padding: 50px 100px;
+    border-radius: 2rem;
+    margin: 20px auto;
+    width: 700px;
+    height: fit-content;
+
+    .transfer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+        padding: 20px;
+        background-color: $main-clr4;
+        border-radius: 0.5rem;
+        margin: 20px;
+
+        &label{
+            text-align: center;
+        }
+    }
+
+    // box-shadow: 9px 12px 0px 0px $main-clr5 ;
+
+    img {
+        width: 200px;
+        border-radius: 50%;
+        border: white 2px solid;
+        background-color: $main-clr5;
+    }
+
+    h2 {
+        color: $main-clr5;
+    }
+
+    .info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        gap: 20px;
+
+        .info-details {
+            background-color: azure;
+            border-radius: 0.5rem;
+            display: flex;
+            flex-direction: column;
+
+
+            h3 {
+                background-color: $main-clr5;
+                color: azure;
+                margin: 0;
+                padding: 20px;
+
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+            }
+
+            p {
+                padding: 20px;
+                color: $main-clr5;
+            }
+
+            
+        }
+        
+
+    }
+    
+}
+
+.info-details-transfer{
+    background-color: $main-clr3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+    padding: 50px 100px;
+    border-radius: 2rem;
+    margin: 20px auto;
+    width: 700px;
+    height: fit-content;
+
+    h1{
+        margin: 0;
+    }
+}
+
+.try{
+    // display: flex;
+    // align-items: center;
+    background: url('/src/assets/img/coin.png') ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position-y:-400px;
+    // background-position-x:200px;
+    min-height: 100vh;
+
+    h3{
+        margin: auto;
+        text-align: center;
+    }
+}
